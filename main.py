@@ -45,7 +45,7 @@ class Cannonball:
     #  @param angle the angle of the cannon
     #  @param velocity the initial velocity of the ball
     #
-    def shoot(self, angle, velocity, user_grav):
+    def shoot(self, angle, velocity, user_grav, print_iface):
         self._vx = velocity * cos(angle)
         self._vy = velocity * sin(angle)
         self.move(0.1, user_grav)
@@ -56,7 +56,7 @@ class Cannonball:
             plt.scatter(self.getX(), self.getY())
             plt.pause(.01)
             self.move(0.1, user_grav)
-class Cannonball:
+class Crazyball(Cannonball):
     def move (self, sec, grav=9.81):
         if self.getX() < 400:
             rand_q = random.randrange(0,10)
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     print("[ Cannonball Simulator ]") # Welcomes user to Cannonball Simulator
 
     velocity=float(input("Enter initial velocity ")) # Tells user to input the initial velovity
-    angl=float(input("Enter initial angle (in radians):  ")) # Tells user to input initial angle
+    angle=float(input("Enter initial angle (in radians):  ")) # Tells user to input initial angle
 
     while True:
         print("\n Select Gravity Option: ")
@@ -76,12 +76,24 @@ if __name__ == '__main__':
         print("3. Crazy Trajectory")
         print("4. Quit")
 
+        choice = input("Enter choice: ")
 
+        if choice == "1":
+            cannonball = Cannonball(0)
+            gravity = 9.81
+        elif choice == "2":
+            cannonball = Cannonball(0)
+            gravity = 1.62
+        elif choice == "3":
+            cannonball = Crazyball(0) 
+            gravity = 9.81
+        elif choice == "4":
+            print ("Goodbye!")
+            break
+        else:
+            print ("Invalid input")
+            continue
 
-    angle = float(input("Enter starting angle:"))
-    v = float(input("Enter initial velocity:"))
-    c = Cannonball(0)
-    c.shoot(angle, v, 9.81)
-
-
+        print_iface = Print_Iface()
+        cannonball.shoot(angle, velocity, gravity, print_iface)
 
