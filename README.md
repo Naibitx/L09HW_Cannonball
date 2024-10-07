@@ -17,6 +17,6 @@ Will help students learn how to apply inheritance and composition to Object orie
 Need to pip install matplotlib
 
 ## Maintained by 
-Professor Navarro
+Naibys Alzugaray
 
 
