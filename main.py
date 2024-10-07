@@ -1,8 +1,13 @@
 from math import sin, cos
 from matplotlib import pyplot as plt
 
+class Print_Iface: # Making print interface (handles printing and plotting)
+    def main_print(x,y):
+        print(f"The ball is at ({x:.1f}, {y:.1f})")
+        plt.scatter(x,y)
+        plt.pause(.01)
+        
 ## Represent a cannonball, tracking its position and velocity.
-#
 class Cannonball:
     ## Create a new cannonball at the provided x position.
     #  @param x the x position of the ball
