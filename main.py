@@ -56,12 +56,13 @@ class Cannonball:
             plt.scatter(self.getX(), self.getY())
             plt.pause(.01)
             self.move(0.1, user_grav)
-class Crazyball(Cannonball):
+class Crazyball(Cannonball): 
     def move (self, sec, grav=9.81):
-        if self.getX() < 400:
-            rand_q = random.randrange(0,10)
+        if self.getX() < 400: #If position is less than 400, add randomness
+            rand_q = random.randrange(0,10) # randomized integers from 0-9
             self._vx += rand_q * 0.1
-        super().move(sec, grav)
+        super().move(sec, grav) # Call move method from Cannonball
+
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print("[ Cannonball Simulator ]") # Welcomes user to Cannonball Simulator
@@ -69,16 +70,16 @@ if __name__ == '__main__':
     velocity=float(input("Enter initial velocity ")) # Tells user to input the initial velovity
     angle=float(input("Enter initial angle (in radians):  ")) # Tells user to input initial angle
 
-    while True:
+    while True: # This displays menu for the users to seect the gravity they want
         print("\n Select Gravity Option: ")
         print("1. Earth Gravity")
         print("2. Moon Gravity")
         print("3. Crazy Trajectory")
         print("4. Quit")
 
-        choice = input("Enter choice: ")
+        choice = input("Enter choice: ") # assigns users choice to variable "choice"
 
-        if choice == "1":
+        if choice == "1": 
             cannonball = Cannonball(0)
             gravity = 9.81
         elif choice == "2":
@@ -88,12 +89,12 @@ if __name__ == '__main__':
             cannonball = Crazyball(0) 
             gravity = 9.81
         elif choice == "4":
-            print ("Goodbye!")
-            break
+            print ("Goodbye!") # Displays goodbye message
+            break # exits loop
         else:
             print ("Invalid input")
             continue
 
-        print_iface = Print_Iface()
-        cannonball.shoot(angle, velocity, gravity, print_iface)
+        print_iface = Print_Iface() #creates object Print_Iface
+        cannonball.shoot(angle, velocity, gravity, print_iface) #Shoots the ball
 
