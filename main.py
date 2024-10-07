@@ -1,3 +1,4 @@
+import random
 from math import sin, cos
 from matplotlib import pyplot as plt
 
@@ -55,13 +56,27 @@ class Cannonball:
             plt.scatter(self.getX(), self.getY())
             plt.pause(.01)
             self.move(0.1, user_grav)
-
+class Cannonball:
+    def move (self, sec, grav=9.81):
+        if self.getX() < 400:
+            rand_q = random.randrange(0,10)
+            self._vx += rand_q * 0.1
+        super().move(sec, grav)
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print("[ Cannonball Simulator ]") # Welcomes user to Cannonball Simulator
 
     velocity=float(input("Enter initial velocity ")) # Tells user to input the initial velovity
     angl=float(input("Enter initial angle (in radians):  ")) # Tells user to input initial angle
+
+    while True:
+        print("\n Select Gravity Option: ")
+        print("1. Earth Gravity")
+        print("2. Moon Gravity")
+        print("3. Crazy Trajectory")
+        print("4. Quit")
+
+
 
     angle = float(input("Enter starting angle:"))
     v = float(input("Enter initial velocity:"))
