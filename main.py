@@ -2,11 +2,11 @@ from math import sin, cos
 from matplotlib import pyplot as plt
 
 class Print_Iface: # Making print interface (handles printing and plotting)
+    @staticmethod
     def main_print(x,y):
         print(f"The ball is at ({x:.1f}, {y:.1f})")
         plt.scatter(x,y)
         plt.pause(.01)
-        
 ## Represent a cannonball, tracking its position and velocity.
 class Cannonball:
     ## Create a new cannonball at the provided x position.
@@ -17,7 +17,6 @@ class Cannonball:
         self._y = 0
         self._vx = 0
         self._vy = 0
-
     ## Move the cannon ball, using its current velocities.
     #  @param sec the amount of time that has elapsed.
     #
@@ -29,7 +28,6 @@ class Cannonball:
 
         self._x = self._x + dx
         self._y = self._y + dy
-
     ## Get the current x position of the ball.
     #  @return the x position of the ball
     #
@@ -41,7 +39,7 @@ class Cannonball:
     #
     def getY(self):
         return self._y
-
+    
     ## Shoot the canon ball.
     #  @param angle the angle of the cannon
     #  @param velocity the initial velocity of the ball
@@ -58,14 +56,12 @@ class Cannonball:
             plt.pause(.01)
             self.move(0.1, user_grav)
 
-
-
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    ##
-    #  Demonstrate the cannonball class.
-    #
-    #from cannonball import Cannonball
+    print("[ Cannonball Simulator ]") # Welcomes user to Cannonball Simulator
+
+    velocity=float(input("Enter initial velocity ")) # Tells user to input the initial velovity
+    angl=float(input("Enter initial angle (in radians):  ")) # Tells user to input initial angle
 
     angle = float(input("Enter starting angle:"))
     v = float(input("Enter initial velocity:"))
